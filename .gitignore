@@ -1,0 +1,23 @@
+# Fișiere executabile
+*.exe
+*.out
+*.o
+
+# Artefacte de compilare
+*.obj
+*.dll
+*.so
+*.dylib
+*.pdb
+*.ilk
+*.lib
+
+# Fișiere temporare
+*.tmp
+*.log
+*.bak
+
+# Alte directoare de build
+/build/
+/bin/
+/obj/
