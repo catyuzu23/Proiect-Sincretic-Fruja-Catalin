@@ -1,8 +1,31 @@
 #include <iostream>
 #include <stack>
+#include <vector>
 #include <cmath>
 #include <climits> 
 using namespace std;
+
+void printStack(stack<int> st, char label){
+    vector<int> elements;//to store them in reverse order
+    while(!st.empty()){
+        elements.push_back(st.top());
+        st.pop();
+    }
+    cout<<label<<": ";
+    for(auto it=elements.rbegin(); it!=elements.rend(); it++){
+        cout<<*it<<" ";
+    }
+    cout<<endl;
+}
+
+void displayStacks(stack<int> src, stack<int> aux, stack<int> dest){
+    cout<<"Current state of stacks: "<<endl;
+    printStack(src, 'A');
+    printStack(aux, 'B');
+    printStack(dest, 'C');
+    cout<<"---------------------"<<endl;
+}
+
 
 void moveDisk(stack<int>& source, stack<int>& destination, char s, char d) {
     int fromTop, toTop;
@@ -47,6 +70,7 @@ void towerOfHanoi(int nmbOfDisks) {
         } else if (i % 3 == 2) {
             moveDisk(aux, dest, a, d);
         }
+        displayStacks(src, aux, dest);
     }
 }
 
